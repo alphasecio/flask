@@ -1,9 +1,25 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Hello World</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-  </body>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta NIT</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>API Consulta RUES</h1>
+        <form id="consultaForm">
+            <label for="nit">Ingresa el NIT/ID:</label>
+            <input type="text" id="nit" name="nit" required>
+            <div class="button-container">
+                <button type="submit" class="btn-primary">Consultar</button>
+            </div>
+        <div class="loader" id="loader"></div>
+        </form>
+        <div id="resultado"></div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
 </html>
