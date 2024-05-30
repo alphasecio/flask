@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, send_file, render_template
+from flask import Flask, render_template, request, jsonify, send_file
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
@@ -6,6 +6,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
 import time
 import re
 import json
@@ -22,7 +23,7 @@ def obtener_datos_nit(driver, nit):
         nit_input.send_keys(Keys.BACKSPACE)
         nit_input.send_keys(nit)
         nit_input.send_keys(Keys.ENTER)
-        
+
         try:
             WebDriverWait(driver, 20).until(
                 EC.presence_of_element_located((By.XPATH, '//a[@class="text-end pe-2"]'))
@@ -38,7 +39,7 @@ def obtener_datos_nit(driver, nit):
                 ("Camara_Comercio", '//p[text()="Cámara de Comercio"]/following-sibling::p'),
                 ("Estado_Matricula", '//p[text()="Estado de la matrícula"]/following-sibling::p'),
                 ("Fecha_Vigencia", '//p[text()="Fecha de Vigencia"]/following-sibling::p'),
-                ("Fecha_Renovación", '//p[text()="Fecha de renovación"]/following-sibling::p'),
+                ("Fecha_Renovación", '//p[text="Fecha de renovación"]/following-sibling::p'),
                 ("Último_Año_Renovado", '//p[text()="Último año renovado"]/following-sibling::p'),
                 ("Fecha_Actualización", '//p[text()="Fecha de Actualización"]/following-sibling::p'),
                 ("Categoría_Matricula", '//p[text()="Categoria de la Matrícula"]/following-sibling::p'),
@@ -73,10 +74,10 @@ def obtener_datos_nit(driver, nit):
             ).click()
 
             return datos
-        
+
         except TimeoutException:
             return {"error": f"No se encontró información para el NIT {nit}"}
-    
+
     except TimeoutException:
         return {"error": f"No se encontró información para el NIT {nit}"}
 
@@ -91,7 +92,11 @@ def consulta_nit():
 
     options = Options()
     options.headless = True
-    driver = webdriver.Chrome(executable_path='./Driver/chromedriver.exe', options=options)
+    options.add_argument("--disable-gpu")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+
+    driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
     driver.get("https://ruesfront.rues.org.co/busqueda-avanzada")
     driver.maximize_window()
     time.sleep(1)
@@ -107,5 +112,5 @@ def consulta_nit():
     # Envía el archivo JSON como respuesta
     return send_file(file_path, as_attachment=True, mimetype='application/json')
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
