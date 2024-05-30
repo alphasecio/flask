@@ -39,7 +39,7 @@ def obtener_datos_nit(driver, nit):
                 ("Camara_Comercio", '//p[text()="Cámara de Comercio"]/following-sibling::p'),
                 ("Estado_Matricula", '//p[text()="Estado de la matrícula"]/following-sibling::p'),
                 ("Fecha_Vigencia", '//p[text()="Fecha de Vigencia"]/following-sibling::p'),
-                ("Fecha_Renovación", '//p[text="Fecha de renovación"]/following-sibling::p'),
+                ("Fecha_Renovación", '//p[text()="Fecha de renovación"]/following-sibling::p'),
                 ("Último_Año_Renovado", '//p[text()="Último año renovado"]/following-sibling::p'),
                 ("Fecha_Actualización", '//p[text()="Fecha de Actualización"]/following-sibling::p'),
                 ("Categoría_Matricula", '//p[text()="Categoria de la Matrícula"]/following-sibling::p'),
