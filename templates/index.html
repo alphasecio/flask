@@ -1,9 +1,43 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Hello World</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Report</title>
+    <link rel="stylesheet" type="text/css" href="static/styles.css">
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myInput");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Instagram Report Generator</h1>
+        <form method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="myInput" name="password" required> 
+
+            <!-- An element to toggle between password visibility -->
+             <div>
+                <input type="checkbox" onclick="myFunction()">show password
+            
+             </div><br>
+            <label for="">Target User:</label>
+            <input type="text" id="target_user" name="target_user" required>
+            <label for="start_date">Start Date:</label>
+            <input type="date" id="start_date" name="start_date" required>
+            <label for="end_date">End Date:</label>
+            <input type="date" id="end_date" name="end_date" required>
+            <button type="submit">Generate Report</button>
+        </form>
+    </div>
+</body>
 </html>
