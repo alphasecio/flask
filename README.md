@@ -1,7 +1,7 @@
 # Flask
-A minimal [Flask](https://flask.palletsprojects.com/) web application, served by [Gunicorn](https://docs.gunicorn.org/), and ready to deploy on [Railway](https://railway.app/?referralCode=alphasec) or Vercel.
+A minimal [Flask](https://flask.palletsprojects.com/) web application, served by [Gunicorn](https://docs.gunicorn.org/), and ready to deploy on [Railway](https://railway.com/?referralCode=alphasec) or Vercel.
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/igzwwg?referralCode=alphasec)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/igzwwg?referralCode=alphasec)
 
 ## Stack
  
