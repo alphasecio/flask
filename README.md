@@ -7,7 +7,6 @@ A minimal [Flask](https://flask.palletsprojects.com/) web application, served by
  
 - **[Flask](https://flask.palletsprojects.com/)** — Python web framework
 - **[Gunicorn](https://docs.gunicorn.org/)** — production WSGI server
-- **[Bootstrap 4](https://getbootstrap.com/docs/4.6/)** — frontend styling
  
 ## Project Structure
  
@@ -16,8 +15,10 @@ A minimal [Flask](https://flask.palletsprojects.com/) web application, served by
 ├── templates/
 │   └── index.html       # Jinja2 HTML template
 ├── static/
-│   └── css/styles.css   # Custom styles
-├── requirements.txt     # Python dependencies
+│   ├── css/styles.css   # Custom styles
+│   └── favicon.ico      # Site icon
+├── requirements.txt     # Pinned Python dependencies
+├── .python-version      # Python version for Railway
 ├── Procfile             # Railway / Heroku process definition
 └── vercel.json          # Vercel deployment config
 ```
