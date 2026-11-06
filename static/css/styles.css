@@ -9,6 +9,7 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
 .row {
@@ -23,6 +24,17 @@ body {
   font-family: 'Roboto', sans-serif;
   background: linear-gradient(to right, #FFFFFF 0%, #FF6600 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   padding-top: 100px;
+}
+
+.text-muted {
+  color: #6c757d;
+}
+
+.small {
+  display: inline-block;
+  font-size: 80%;
+  padding-bottom: 24px;
 }
